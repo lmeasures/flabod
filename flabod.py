@@ -167,7 +167,7 @@ class MainScene(Scene):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.manager.quit_game()
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) or (event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[2]):
                 self.player.velocity -= self.JUMP_CONSTANT
                 self.player.play_flap()
                 
@@ -210,7 +210,7 @@ class StartScene(Scene):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.manager.quit_game()
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            if (event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE) or (event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[2]):
                 pygame.mixer.music.stop()
                 self.manager.set_scene("main")
                 
